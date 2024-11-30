@@ -1,6 +1,8 @@
 pipeline {
     agent any
-
+    tools {
+        nodejs 'NodeJS'  // Numele pe care l-ai dat tool-ului NodeJS în configurația globală
+    }
     environment {
         GITHUB_TOKEN = credentials('github-token') // Token-ul pentru autentificare GitHub
     }
