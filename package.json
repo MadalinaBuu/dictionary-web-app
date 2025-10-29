@@ -6,7 +6,8 @@
     "start": "ng serve",
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
-    "test": "ng test"
+    "test": "ng test",
+    "deploy": "ng build --configuration=production --base-href /dictionary-web-app/ && npx ngh --dir=dist/dictionary-web-app/browser"
   },
   "private": true,
   "dependencies": {
