@@ -24,8 +24,15 @@ export class MainComponent {
 
   wordData: WordData | undefined;
   @ViewChild('wordInputDOM', { static: false }) wordInputDOMRef!: ElementRef;
+  isDarkMode = false;
 
   constructor(private dictionaryService: DictionaryService, private themeService: ThemeService) { }
+
+  ngOnInit() {
+    this.themeService.darkMode$.subscribe(value => {
+      this.isDarkMode = value;
+    });
+  }
 
   ngAfterViewInit() {
     this.themeService.setWordInputRef(this.wordInputDOMRef);
@@ -45,7 +52,7 @@ export class MainComponent {
         this.definition = response;
         this.showError = false;
 
-        this.wordData = response[0];//TODO: make carousel for many solutions=
+        this.wordData = response[0];//TODO: make carousel for many solutions
       },
       (error) => {
         this.showError = true;

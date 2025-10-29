@@ -5,8 +5,8 @@ import { BehaviorSubject } from 'rxjs';
   providedIn: 'root'
 })
 export class ThemeService {
-    private darkModeEnabled = new BehaviorSubject<boolean>(false);
-    private wordInputRef!: ElementRef;
+  private darkModeEnabled = new BehaviorSubject<boolean>(false);
+  private wordInputRef!: ElementRef;
 
   setWordInputRef(ref: ElementRef) {
     this.wordInputRef = ref;
@@ -16,9 +16,9 @@ export class ThemeService {
 
     return this.wordInputRef;
   }
-    darkMode$ = this.darkModeEnabled.asObservable();
-  
-    setDarkMode(isEnabled: boolean) {
-      this.darkModeEnabled.next(isEnabled);
-    }
+  darkMode$ = this.darkModeEnabled.asObservable();
+
+  setDarkMode(isEnabled: boolean) {
+    this.darkModeEnabled.next(isEnabled);
+  }
 }

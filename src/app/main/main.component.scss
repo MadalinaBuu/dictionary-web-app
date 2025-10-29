@@ -105,3 +105,12 @@ input:focus {
     font-size: -webkit-xxx-large;
   }
 }
+
+.night-mode .form-control {
+  color: #fff;
+}
+
+.night-mode .form-control::placeholder {
+  color: #fff;
+  opacity: 1;
+}

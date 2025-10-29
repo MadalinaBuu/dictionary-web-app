@@ -13,6 +13,7 @@ export class NavComponent {
 
   selectedFont: string = 'Sans Serif';
   isActive: boolean = false;
+  isDarkMode = false;
 
   constructor(private renderer: Renderer2,
     private themeService: ThemeService
@@ -24,7 +25,8 @@ export class NavComponent {
   }
 
   toggleStyle(event: any) {
-    const isDarkMode = event.target.checked;
-    this.themeService.setDarkMode(isDarkMode);
+    const input = event.target as HTMLInputElement;
+    this.isDarkMode = input.checked;
+    this.themeService.setDarkMode(this.isDarkMode);
   }
 }
