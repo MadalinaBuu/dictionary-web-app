@@ -1,0 +1,26 @@
+// Definirea fonturilor
+@font-face {
+    font-family: 'Sans Serif';
+    src: url('/assets/fonts/sans-serif') format('truetype');
+  }
+  
+  @font-face {
+    font-family: 'Serif';
+    src: url('/assets/fonts/serif') format('truetype');
+  }
+  
+  @font-face {
+    font-family: 'Mono';
+    src: url('/assets/fonts/Mono') format('truetype');
+  }
+
+// Variabile pentru familiile de fonturi
+$font-sans-serif: 'Sans Serif', sans-serif;
+$font-serif: 'Serif', serif;
+$font-mono: 'Mono', monospace;
+
+$white: #FFFFFF;
+$white-bkg: #979797;
+$purple:#A445ED;
+$grey: #F4F4F4;
+$dark-grey: #757575;

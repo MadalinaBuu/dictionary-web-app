@@ -1,1 +1,134 @@
-/* You can add global styles to this file, and also import other style files */
+@import 'variables';
+
+html,
+body {
+
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    background-color: $white;
+    font-family: $font-sans-serif;
+
+    .container {
+        padding-top: 3rem;
+        padding-left: 15rem;
+        padding-right: 15rem;
+
+        input {
+            border-radius: 0.5rem;
+            font-weight: bold;
+            background-color: $grey;
+            border: none;
+        }
+
+        input:focus {
+            box-shadow: none;
+            border: 2px solid $purple;
+        }
+
+        .input-group-text {
+            border: none;
+            background-color: $grey;
+
+            i {
+                color: $purple;
+            }
+        }
+    }
+
+    .dropdown {
+        display: flex;
+        justify-content: flex-end;
+
+        button {
+            text-decoration: none;
+            font-weight: bold;
+            color: black;
+        }
+
+        .dropdown-menu {
+            .dropdown-item {
+
+                font-weight: bold;
+            }
+
+            li {
+
+                :hover {
+                    background-color: transparent;
+                    color: $purple;
+                }
+            }
+        }
+
+        :hover,
+        :focus,
+        .btn-active {
+            color: black;
+        }
+    }
+
+    .custom-dropdown {
+        position: relative;
+        padding-right: 30px;
+
+    }
+
+    .custom-dropdown .custom-arrow {
+        display: inline-block;
+        width: 13px;
+        height: 7px;
+        background-image: url(/assets/images/icon-arrow-down.svg);
+        background-size: cover;
+        position: absolute;
+        right: 10px;
+        top: 52%;
+        transform: translateY(-50%);
+    }
+
+    .custom-dropdown::after {
+        display: none;
+    }
+
+    .day-night {
+        display: flex;
+        justify-content: flex-end;
+
+        .form-check-input {
+            background-color: $dark-grey;
+            border: $dark-grey;
+            cursor: pointer;
+            outline: none;
+        }
+
+        .form-switch .form-check-input {
+            --bs-form-switch-bg: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='-4 -4 8 8'%3e%3ccircle r='3' fill='%23fff'/%3e%3c/svg%3e");
+            background-image: var(--bs-form-switch-bg);
+            background-color: $dark-grey;
+        }
+
+        .form-switch .form-check-input:focus,
+        .form-switch .form-check-input:active {
+            box-shadow: none;
+            background-color: $purple;
+        }
+
+        .form-switch .form-check-input:focus:not(:checked) {
+            background-color: $dark-grey;
+            border: $dark-grey;
+        }
+    }
+}
+
+@media (max-width: 1200px) {
+
+    html,
+    body {
+
+        .container {
+            padding-top: 3rem;
+            padding-left: 1rem;
+            padding-right: 1rem;
+        }
+    }
+}

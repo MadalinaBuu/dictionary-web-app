@@ -1,0 +1,36 @@
+<div class="container">
+    <div class="row">
+        <div class="col-md-6 col-sm-6">
+            <img src="assets/images/logo.svg" alt="logo">
+        </div>
+        <div class="col-md-6 col-sm-6">
+            <div class="row">
+                <div class="col-md-6 col-sm-6 dropdown">
+                    <div class="dropdown">
+                        <button class="btn btn-link dropdown-toggle custom-dropdown" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
+                            {{ selectedFont }}
+                            <span class="custom-arrow"></span>
+                        </button>
+                        <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                          <li><a class="dropdown-item" href="#" (click)="selectFont('Sans Serif', 'Sans Serif')">Sans Serif</a></li>
+                          <li><a class="dropdown-item" href="#" (click)="selectFont('Serif', 'Serif')">Serif</a></li>
+                          <li><a class="dropdown-item" href="#" (click)="selectFont('Mono', 'Mono')">Mono</a></li>
+                        </ul>
+                      </div>
+                </div>
+                <div class="col-md-6 col-sm-6 day-night">
+                    <div class="row">
+                        <div class="col-md-6 col-sm-6">
+                            <div class="form-check form-switch">
+                                <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckChecked" (change)="toggleStyle($event)">
+                              </div>
+                        </div>
+                        <div class="col-md-6 col-sm-6">
+                            <img src="assets/images/icon-moon.svg" alt="logo">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,68 @@
+<div class="container">
+    <div class="input-group">
+        <input 
+          type="text" 
+          [(ngModel)]="word" 
+          class="form-control" 
+          name="word" 
+          #wordInput="ngModel"
+          #wordInputDOM
+          placeholder="Search for any word..."
+          (keydown.enter)="searchWord()" 
+          (ngModelChange)="checkEmptyField()" 
+          [ngClass]="{'is-invalid': isEmpty}" 
+          required
+        />
+        <span class="input-group-text">
+          <i class="fas fa-search"></i>
+        </span>
+      </div>
+      
+      <div *ngIf="isEmpty" class="empty-field">
+        Whoops, can't be empty...
+      </div>
+    <div *ngIf="showError">
+        <div class="definition-not-found">
+            <span class="emoticon">😕</span>
+            <p><b>No Definitions Found</b></p>
+            <p>Sorry pal, we couldn't find definitions for the word you were looking for. You can try the search again at
+                later time or head to the web instead.</p>
+        </div>
+    </div>
+
+    <div *ngIf="wordData && !showError" class="word_details">
+        <div class="row">
+            <div class="col-10">
+                <h1>{{wordData.word}}</h1>
+                <p class="word_details_phonetic">{{wordData.phonetic}}</p>
+            </div>
+            <div class="col-2 d-flex justify-content-center align-items-center">
+                <ng-container *ngIf="getFirstAudioPhonetic() as firstPhonetic">
+                    <ng-container *ngIf="firstPhonetic.audio?.trim() !== ''">
+                      <audio #audioPlayer [src]="firstPhonetic.audio" preload="auto"></audio>
+                      <button class="svg-button" (click)="playAudio(audioPlayer)">
+                        <img src="assets/images/icon-play.svg" alt="Icon" class="svg-icon" />
+                      </button>
+                    </ng-container>
+                  </ng-container>
+            </div>
+        </div>
+
+        <div *ngFor="let meaning of wordData.meanings">
+            <div class="flex-container">
+                <span class="text">{{meaning.partOfSpeech}}</span>
+                  <span class="line"></span>
+              </div>
+            <p class="grey-text">Meaning</p>
+            <ul>
+                <li *ngFor="let def of meaning.definitions">{{ def.definition }}
+                    <div *ngIf="def.example" class="grey-text">"{{ def.example }}"</div>
+                </li>
+            </ul>
+            <span class="grey-text" *ngIf="meaning.synonyms.length > 0">Synonyms</span>
+            <span *ngFor="let synonym of meaning.synonyms"><span class="purple-text"> {{synonym}}</span></span>
+        </div>
+        <hr>
+        <p><span class="grey-text">Source</span> {{wordData.sourceUrls}}</p>
+    </div>
+</div>
