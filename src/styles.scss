@@ -118,6 +118,10 @@ body {
     }
 }
 
+body.night-mode, html.night-mode {
+  background-color: black;
+}
+
 @media (max-width: 1200px) {
 
     html,

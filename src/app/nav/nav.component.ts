@@ -17,8 +17,8 @@ export class NavComponent {
 
   constructor(private renderer: Renderer2,
     private themeService: ThemeService
-  ) {}
-  
+  ) { }
+
   selectFont(fontName: string, fontFamily: string): void {
     this.selectedFont = fontName;
     this.renderer.setStyle(document.body, 'font-family', fontFamily);
@@ -28,5 +28,13 @@ export class NavComponent {
     const input = event.target as HTMLInputElement;
     this.isDarkMode = input.checked;
     this.themeService.setDarkMode(this.isDarkMode);
+
+    if (this.isDarkMode) {
+      document.body.classList.add('night-mode');
+      document.documentElement.classList.add('night-mode'); // html
+    } else {
+      document.body.classList.remove('night-mode');
+      document.documentElement.classList.remove('night-mode');
+    }
   }
 }
